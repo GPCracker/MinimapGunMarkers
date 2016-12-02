@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Minimap Gun Markers Mod (MinimapGunMarkers)\n"
+"Report-Msgid-Bugs-To: http://www.koreanrandom.com/forum/topic/18451-/\n"
+"Last-Translator: GPCracker <GPCracker@mail.ru>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "appLoadedMessage"
+msgstr "<a href='event:MinimapGunMarkers.official_topic'><font color='#0080FF'>\"Маркеры&nbsp;направления&nbsp;орудий&nbsp;на&nbsp;миникарте\" (MinimapGunMarkers)</font></a> <font color='#008000'>загружены.</font>"
+
+msgid "appFailedMessage"
+msgstr "<a href='event:MinimapGunMarkers.official_topic'><font color='#0080FF'>\"Маркеры&nbsp;направления&nbsp;орудий&nbsp;на&nbsp;миникарте\" (MinimapGunMarkers)</font></a> <font color='#E00000'>несовместимы с текущей версией клиента.</font>"
+
+msgid "vehicleGunMarkers/global/onActivate"
+msgstr "[МАРКЕРЫ ОРУДИЙ] ГЛОБАЛЬНО АКТИВИРОВАНО."
+
+msgid "vehicleGunMarkers/global/onDeactivate"
+msgstr "[МАРКЕРЫ ОРУДИЙ] ГЛОБАЛЬНО ДЕАКТИВИРОВАНО."
+
+msgid "vehicleGunMarkers/spg/onActivate"
+msgstr "[МАРКЕРЫ ОРУДИЙ] АРТИЛЛЕРИЯ АКТИВИРОВАНО."
+
+msgid "vehicleGunMarkers/spg/onDeactivate"
+msgstr "[МАРКЕРЫ ОРУДИЙ] АРТИЛЛЕРИЯ ДЕАКТИВИРОВАНО."
+
+msgid "vehicleGunMarkers/squad/onActivate"
+msgstr "[МАРКЕРЫ ОРУДИЙ] ВЗВОД АКТИВИРОВАНО."
+
+msgid "vehicleGunMarkers/squad/onDeactivate"
+msgstr "[МАРКЕРЫ ОРУДИЙ] ВЗВОД ДЕАКТИВИРОВАНО."
+
+msgid "vehicleGunMarkers/enemy/onActivate"
+msgstr "[МАРКЕРЫ ОРУДИЙ] ПРОТИВНИКИ АКТИВИРОВАНО."
+
+msgid "vehicleGunMarkers/enemy/onDeactivate"
+msgstr "[МАРКЕРЫ ОРУДИЙ] ПРОТИВНИКИ ДЕАКТИВИРОВАНО."
