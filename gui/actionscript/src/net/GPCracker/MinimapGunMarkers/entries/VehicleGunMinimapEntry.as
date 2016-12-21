@@ -1,7 +1,7 @@
 package net.GPCracker.MinimapGunMarkers.entries
 {
+	import flash.geom.Matrix;
 	import flash.display.Sprite;
-	import flash.geom.ColorTransform;
 
 	import net.GPCracker.Application;
 	import net.GPCracker.base.AtlasSprite;
@@ -19,10 +19,8 @@ package net.GPCracker.MinimapGunMarkers.entries
 			return;
 		}
 
-		private function setGraphics(source:String, offsetX:Number=0.0, offsetY:Number=0.0, smooth:Boolean=false, repeat:Boolean=false, center:Boolean=false):void
+		private function setGraphics(source:String, smooth:Boolean=false, repeat:Boolean=false, center:Boolean=false):void
 		{
-			this.gunDirection.x = offsetX;
-			this.gunDirection.y = offsetY;
 			this.gunDirection.fillSmooth = smooth;
 			this.gunDirection.fillRepeat = repeat;
 			this.gunDirection.fillCenter = center;
@@ -31,17 +29,29 @@ package net.GPCracker.MinimapGunMarkers.entries
 			return;
 		}
 
+		private function setTransform(scaleX:Number=1.0, scaleY:Number=1.0, offsetX:Number=0.0, offsetY:Number=0.0):void
+		{
+			var matrix:Matrix = new Matrix();
+			matrix.scale(scaleX, scaleY);
+			matrix.translate(offsetX, offsetY);
+			this.gunDirection.transform.matrix = matrix;
+			return;
+		}
+
 		public function as_setGraphics(...args):void
 		{
-			if (1 <= args.length && args.length <= 6)
+			if (1 <= args.length && args.length <= 8)
 			{
 				var source:String = args.shift();
+				var scaleX:Number = args.length ? args.shift() : 1.0;
+				var scaleY:Number = args.length ? args.shift() : 1.0;
 				var offsetX:Number = args.length ? args.shift() : 0.0;
 				var offsetY:Number = args.length ? args.shift() : 0.0;
 				var smooth:Boolean = args.length ? args.shift() : false;
 				var repeat:Boolean = args.length ? args.shift() : false;
 				var center:Boolean = args.length ? args.shift() : false;
-				this.setGraphics(source, offsetX, offsetY, smooth, repeat, center);
+				this.setGraphics(source, smooth, repeat, center);
+				this.setTransform(scaleX, scaleY, offsetX, offsetY);
 			}
 			else
 			{

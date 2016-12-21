@@ -54,9 +54,12 @@
 					<!-- Marker graphics (a link on atlas item). -->
 					<!-- Графика маркера (ссылка на элемент атласа). -->
 					<source>MinimapGunMarkers:markers/ally</source>
+					<!-- Graphics scale. Applied to image before offset. -->
+					<!-- Масштабирование графики. Применяется к изображению перед смещением. -->
+					<scale>0.75 0.75</scale>
 					<!-- Graphics offset. Image should be shifted to get component registration point matched with expected image rotation point. -->
 					<!-- Смещение графики. Изображение должно быть сдвинуто, чтобы ожидаемая точка вращения картинки совпадала с точкой регистрации компонента. -->
-					<offset>-35.0 -76.0</offset>
+					<offset>-26.0 -58.0</offset>
 					<!-- Bitmap insertion parameter. Described at AS3 documents (flash.display::Graphics.beginBitmapFill()). -->
 					<!-- Параметр наложения изображения. Описан в документации AS3 (flash.display::Graphics.beginBitmapFill()). -->
 					<smooth>True</smooth>
@@ -82,7 +85,8 @@
 				</message>
 				<graphics>
 					<source>MinimapGunMarkers:markers/squadman</source>
-					<offset>-35.0 -76.0</offset>
+					<scale>0.75 0.75</scale>
+					<offset>-26.0 -58.0</offset>
 					<smooth>True</smooth>
 				</graphics>
 			</squad>
@@ -102,7 +106,8 @@
 				</message>
 				<graphics>
 					<source>MinimapGunMarkers:markers/enemy</source>
-					<offset>-35.0 -76.0</offset>
+					<scale>0.75 0.75</scale>
+					<offset>-26.0 -58.0</offset>
 					<smooth>True</smooth>
 				</graphics>
 			</enemy>

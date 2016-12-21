@@ -39,7 +39,8 @@ def defaultConfig():
 					},
 					'graphics': {
 						'source': ('String', 'MinimapGunMarkers:markers/ally'),
-						'offset': ('Vector2AsTuple', (-35.0, -76.0)),
+						'scale': ('Vector2AsTuple', (0.75, 0.75)),
+						'offset': ('Vector2AsTuple', (-26.0, -58.0)),
 						'smooth': ('Bool', True)
 					},
 					'function': ('Internal', lambda gunEntry: not gunEntry.isEnemy() and not gunEntry.isSquadMan() and gunEntry.getClassTag() in ('SPG', ))
@@ -58,7 +59,8 @@ def defaultConfig():
 					},
 					'graphics': {
 						'source': ('String', 'MinimapGunMarkers:markers/squadman'),
-						'offset': ('Vector2AsTuple', (-35.0, -76.0)),
+						'scale': ('Vector2AsTuple', (0.75, 0.75)),
+						'offset': ('Vector2AsTuple', (-26.0, -58.0)),
 						'smooth': ('Bool', True)
 					},
 					'function': ('Internal', lambda gunEntry: not gunEntry.isEnemy() and gunEntry.isSquadMan())
@@ -77,7 +79,8 @@ def defaultConfig():
 					},
 					'graphics': {
 						'source': ('String', 'MinimapGunMarkers:markers/enemy'),
-						'offset': ('Vector2AsTuple', (-35.0, -76.0)),
+						'scale': ('Vector2AsTuple', (0.75, 0.75)),
+						'offset': ('Vector2AsTuple', (-26.0, -58.0)),
 						'smooth': ('Bool', True)
 					},
 					'function': ('Internal', lambda gunEntry: gunEntry.isEnemy())

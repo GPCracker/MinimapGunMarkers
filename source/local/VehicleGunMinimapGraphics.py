@@ -1,14 +1,14 @@
 # *************************
 # VehicleGunMinimap Classes
 # *************************
-class GunEntryGraphics(collections.namedtuple('GunEntryGraphics', ('source', 'offset', 'smooth', 'repeat', 'center'))):
+class GunEntryGraphics(collections.namedtuple('GunEntryGraphics', ('source', 'scale', 'offset', 'smooth', 'repeat', 'center'))):
 	__slots__ = ()
 
-	def __new__(sclass, source, offset=(0.0, 0.0), smooth=False, repeat=False, center=False):
-		return super(GunEntryGraphics, sclass).__new__(sclass, source, offset, smooth, repeat, center)
+	def __new__(sclass, source, scale=(1.0, 1.0), offset=(0.0, 0.0), smooth=False, repeat=False, center=False):
+		return super(GunEntryGraphics, sclass).__new__(sclass, source, scale, offset, smooth, repeat, center)
 
 	def tuple(self):
-		return (self.source, ) + self.offset + (self.smooth, self.repeat, self.center)
+		return (self.source, ) + self.scale + self.offset + (self.smooth, self.repeat, self.center)
 
 class GunEntryFilter(object):
 	__slots__ = ('_idx', '_graphics', '_function', 'activated')
