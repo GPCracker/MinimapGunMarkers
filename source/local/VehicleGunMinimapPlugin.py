@@ -37,11 +37,11 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 
 	def start(self):
 		super(VehicleGunMinimapPlugin, self).start()
-		ctrl = gui.battle_control.g_sessionProvider.shared.feedback
+		ctrl = self.sessionProvider.shared.feedback
 		if ctrl is not None:
 			ctrl.onMinimapVehicleAdded += self.__onMinimapVehicleAdded
 			ctrl.onMinimapVehicleRemoved += self.__onMinimapVehicleRemoved
-		gui.battle_control.g_sessionProvider.addArenaCtrl(self)
+		self.sessionProvider.addArenaCtrl(self)
 		gui.shared.g_eventBus.addListener(GunEntryEvent.KEYBOARD_TOGGLE_GLOBAL, self.__handleToggleGlobal, gui.shared.EVENT_BUS_SCOPE.BATTLE)
 		gui.shared.g_eventBus.addListener(GunEntryEvent.KEYBOARD_TOGGLE_FILTER, self.__handleToggleFilter, gui.shared.EVENT_BUS_SCOPE.BATTLE)
 		return
@@ -49,8 +49,8 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 	def stop(self):
 		gui.shared.g_eventBus.removeListener(GunEntryEvent.KEYBOARD_TOGGLE_GLOBAL, self.__handleToggleGlobal, gui.shared.EVENT_BUS_SCOPE.BATTLE)
 		gui.shared.g_eventBus.removeListener(GunEntryEvent.KEYBOARD_TOGGLE_FILTER, self.__handleToggleFilter, gui.shared.EVENT_BUS_SCOPE.BATTLE)
-		gui.battle_control.g_sessionProvider.removeArenaCtrl(self)
-		ctrl = gui.battle_control.g_sessionProvider.shared.feedback
+		self.sessionProvider.removeArenaCtrl(self)
+		ctrl = self.sessionProvider.shared.feedback
 		if ctrl is not None:
 			ctrl.onMinimapVehicleAdded -= self.__onMinimapVehicleAdded
 			ctrl.onMinimapVehicleRemoved -= self.__onMinimapVehicleRemoved

@@ -20,7 +20,6 @@ import BigWorld
 # WoT Client
 # *************************
 import constants
-import gui.battle_control
 import gui.shared.personality
 
 # *************************
