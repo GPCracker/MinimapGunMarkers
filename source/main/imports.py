@@ -46,14 +46,13 @@ import gui.Scaleform.daapi.view.battle.shared.minimap.component
 # *************************
 # X-Mod Library
 # *************************
-import XModLib.Callback
-import XModLib.KeyBoard
-import XModLib.Messages
 import XModLib.HookUtils
 import XModLib.MathUtils
 import XModLib.TextUtils
-import XModLib.ClientInfo
-import XModLib.ResMgrUtils
+import XModLib.EngineUtils
+import XModLib.CallbackUtils
+import XModLib.KeyboardUtils
+import XModLib.ClientMessages
 import XModLib.XMLConfigReader
 
 # *************************

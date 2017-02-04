@@ -1,13 +1,28 @@
 # *************************
-# Configuration
+# Application configuration
 # *************************
-_config_ = None
-
-# *************************
-# Default configuration
-# *************************
-def defaultConfig():
-	return {
+def loadConfiguration():
+	configReader = XModLib.XMLConfigReader.XMLConfigReader((
+		('SimpleShortcut', XModLib.XMLConfigReader.DataObjectXMLReaderMeta.construct(
+			'SimpleShortcutXMLReader',
+			constructor=lambda shortcut, **kwargs: XModLib.KeyboardUtils.Shortcut(shortcut, **kwargs),
+			section_type='String'
+		)),
+		('AdvancedShortcut', XModLib.XMLConfigReader.DataObjectXMLReaderMeta.construct(
+			'AdvancedShortcutXMLReader',
+			constructor=lambda shortcut: XModLib.KeyboardUtils.Shortcut(**shortcut),
+			section_type='Dict'
+		)),
+		('Vector2AsTuple', XModLib.XMLConfigReader.VectorAsTupleXMLReaderMeta.construct(
+			'Vector2AsTupleXMLReader',
+			vector_type='Vector2'
+		)),
+		('LocalizedWideString', XModLib.XMLConfigReader.LocalizedWideStringXMLReaderMeta.construct(
+			'LocalizedWideStringXMLReader',
+			translator=_globals_['i18nFormatter']
+		))
+	))
+	defaultConfig = {
 		'applicationEnabled': ('Bool', True),
 		'ignoreClientVersion': ('Bool', True),
 		'appLoadedMessage': ('LocalizedWideString', u'<a href="event:MinimapGunMarkers.official_topic"><font color="#0080FF">"Minimap&nbsp;Gun&nbsp;Markers"</font></a> <font color="#008000">successfully loaded.</font>'),
@@ -15,11 +30,11 @@ def defaultConfig():
 		'vehicleGunMarkers': {
 			'enabled': ('Bool', True),
 			'activated': ('Bool', True),
-			'shortcut': {
-				'key': ('String', 'KEY_NONE'),
+			'shortcut': ('AdvancedShortcut', {
+				'sequence': ('String', 'KEY_NONE'),
 				'switch': ('Bool', True),
 				'invert': ('Bool', False),
-			},
+			}),
 			'message': {
 				'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: GLOBAL ENABLED.'),
 				'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: GLOBAL DISABLED.')
@@ -28,11 +43,11 @@ def defaultConfig():
 				'spg': {
 					'enabled': ('Bool', True),
 					'activated': ('Bool', True),
-					'shortcut': {
-						'key': ('String', 'KEY_NONE'),
+					'shortcut': ('AdvancedShortcut', {
+						'sequence': ('String', 'KEY_NONE'),
 						'switch': ('Bool', True),
 						'invert': ('Bool', False),
-					},
+					}),
 					'message': {
 						'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: SPG ENABLED.'),
 						'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: SPG DISABLED.')
@@ -48,11 +63,11 @@ def defaultConfig():
 				'squad': {
 					'enabled': ('Bool', True),
 					'activated': ('Bool', True),
-					'shortcut': {
-						'key': ('String', 'KEY_NONE'),
+					'shortcut': ('AdvancedShortcut', {
+						'sequence': ('String', 'KEY_NONE'),
 						'switch': ('Bool', True),
 						'invert': ('Bool', False),
-					},
+					}),
 					'message': {
 						'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: SQUAD ENABLED.'),
 						'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: SQUAD DISABLED.')
@@ -68,11 +83,11 @@ def defaultConfig():
 				'enemy': {
 					'enabled': ('Bool', False),
 					'activated': ('Bool', True),
-					'shortcut': {
-						'key': ('String', 'KEY_NONE'),
+					'shortcut': ('AdvancedShortcut', {
+						'sequence': ('String', 'KEY_NONE'),
 						'switch': ('Bool', True),
 						'invert': ('Bool', False),
-					},
+					}),
 					'message': {
 						'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: ENEMY ENABLED.'),
 						'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: ENEMY DISABLED.')
@@ -88,24 +103,14 @@ def defaultConfig():
 			}
 		}
 	}
-
-# *************************
-# Read configuration from file
-# *************************
-def readConfig():
-	configReader = XModLib.XMLConfigReader.XMLConfigReader((
-		('Vector2AsTuple', XModLib.XMLConfigReader.VectorAsTupleXMLReaderMeta.construct(
-			'Vector2AsTupleXMLReader',
-			vector_type='Vector2'
-		)),
-		('LocalizedWideString', XModLib.XMLConfigReader.LocalizedWideStringXMLReaderMeta.construct(
-			'LocalizedWideStringXMLReader',
-			translator=_globals_['i18nFormatter']
-		))
-	))
 	mainSection = configReader.open_section(os.path.splitext(__file__)[0] + '.xml')
 	if mainSection is None:
 		print '[{}] Config file is missing. Loading defaults.'.format(__application__[1])
 	else:
 		print '[{}] Config file was found. Trying to load it.'.format(__application__[1])
-	return configReader(mainSection, defaultConfig())
+	return configReader(mainSection, defaultConfig)
+
+# *************************
+# Configuration init
+# *************************
+_config_ = loadConfiguration()

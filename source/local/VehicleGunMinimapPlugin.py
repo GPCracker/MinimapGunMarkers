@@ -15,11 +15,11 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 	@staticmethod
 	def getGunMatrixProvider(vehicleID):
 		vehicle = BigWorld.entity(vehicleID)
-		return XModLib.MathUtils.MathUtils.getCombinedMatrixProvider(
+		return XModLib.MathUtils.getCombinedMatrixProvider(
 			vehicle.matrix,
-			XModLib.MathUtils.MathUtils.getMatrixProduct(
+			XModLib.MathUtils.getMatrixProduct(
 				vehicle.appearance.gunMatrix,
-				XModLib.MathUtils.MathUtils.getMatrixProduct(
+				XModLib.MathUtils.getMatrixProduct(
 					vehicle.appearance.turretMatrix,
 					vehicle.matrix
 				)
