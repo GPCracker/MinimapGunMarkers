@@ -20,6 +20,7 @@ import BigWorld
 # WoT Client
 # *************************
 import constants
+import PlayerEvents
 import gui.shared.personality
 
 # *************************

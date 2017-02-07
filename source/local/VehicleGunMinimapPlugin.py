@@ -41,6 +41,7 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 		if ctrl is not None:
 			ctrl.onMinimapVehicleAdded += self.__onMinimapVehicleAdded
 			ctrl.onMinimapVehicleRemoved += self.__onMinimapVehicleRemoved
+		PlayerEvents.g_playerEvents.onTeamChanged += self.__onTeamChanged
 		self.sessionProvider.addArenaCtrl(self)
 		gui.shared.g_eventBus.addListener(GunEntryEvent.KEYBOARD_TOGGLE_GLOBAL, self.__handleToggleGlobal, gui.shared.EVENT_BUS_SCOPE.BATTLE)
 		gui.shared.g_eventBus.addListener(GunEntryEvent.KEYBOARD_TOGGLE_FILTER, self.__handleToggleFilter, gui.shared.EVENT_BUS_SCOPE.BATTLE)
@@ -54,6 +55,7 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 		if ctrl is not None:
 			ctrl.onMinimapVehicleAdded -= self.__onMinimapVehicleAdded
 			ctrl.onMinimapVehicleRemoved -= self.__onMinimapVehicleRemoved
+		PlayerEvents.g_playerEvents.onTeamChanged -= self.__onTeamChanged
 		super(VehicleGunMinimapPlugin, self).stop()
 		return
 
@@ -122,6 +124,10 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 			entry = self._entries[vehicleID]
 			entry.setMatrix(None)
 			entry.updateGraphics()
+		return
+
+	def __onTeamChanged(self, team):
+		self.invalidateArenaInfo()
 		return
 
 	def __handleToggleGlobal(self, event):
