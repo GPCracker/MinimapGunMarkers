@@ -6,16 +6,12 @@ def loadConfiguration():
 		('SimpleShortcut', XModLib.XMLConfigReader.DataObjectXMLReaderMeta.construct(
 			'SimpleShortcutXMLReader',
 			constructor=lambda shortcut, **kwargs: XModLib.KeyboardUtils.Shortcut(shortcut, **kwargs),
-			section_type='String'
+			sectionType='String'
 		)),
 		('AdvancedShortcut', XModLib.XMLConfigReader.DataObjectXMLReaderMeta.construct(
 			'AdvancedShortcutXMLReader',
 			constructor=lambda shortcut: XModLib.KeyboardUtils.Shortcut(**shortcut),
-			section_type='Dict'
-		)),
-		('Vector2AsTuple', XModLib.XMLConfigReader.VectorAsTupleXMLReaderMeta.construct(
-			'Vector2AsTupleXMLReader',
-			vector_type='Vector2'
+			sectionType='Dict'
 		)),
 		('LocalizedWideString', XModLib.XMLConfigReader.LocalizedWideStringXMLReaderMeta.construct(
 			'LocalizedWideStringXMLReader',
@@ -103,7 +99,7 @@ def loadConfiguration():
 			}
 		}
 	}
-	mainSection = configReader.open_section(os.path.splitext(__file__)[0] + '.xml')
+	mainSection = XModLib.XMLConfigReader.openSection(os.path.splitext(__file__)[0] + '.xml')
 	if mainSection is None:
 		print '[{}] Config file is missing. Loading defaults.'.format(__application__[1])
 	else:
