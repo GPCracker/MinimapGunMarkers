@@ -1,9 +1,9 @@
-__application__ = ['Minimap Gun Markers Mod', 'MinimapGunMarkers']
+__application__ = ('Minimap Gun Markers Mod', 'MinimapGunMarkers')
 __official_topic__ = 'http://www.koreanrandom.com/forum/topic/18451-/'
-__authors__ = ['GPCracker']
+__authors__ = ('GPCracker', )
 __version__ = '<version>'
-__xmodlib__ = [['0.1.3', None]]
-__client__ = [['ru'], '<client>', None]
+__xmodlib__ = (('0.1.3', None), )
+__client__ = (('ru', ), '<client>', None)
 
 # *************************
 # Application info

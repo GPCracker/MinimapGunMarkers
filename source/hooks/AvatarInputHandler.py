@@ -3,6 +3,9 @@
 # *************************
 @XModLib.HookUtils.methodHookExt(_inject_hooks_, AvatarInputHandler.AvatarInputHandler, 'handleKeyEvent')
 def new_AvatarInputHandler_handleKeyEvent(self, event):
+	if not self._AvatarInputHandler__isStarted or self.isDetached:
+		return
+	## Keyboard event parsing
 	event = XModLib.KeyboardUtils.KeyboardEvent(event)
 	## HotKeys - VehicleGunMarkers
 	mconfig = _config_['vehicleGunMarkers']
