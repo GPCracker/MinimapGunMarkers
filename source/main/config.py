@@ -97,7 +97,9 @@ def loadConfiguration():
 					'function': ('Internal', lambda gunEntry: gunEntry.isEnemy())
 				}
 			}
-		}
+		},
+		'plugins': {},
+		'gui': {}
 	}
 	mainSection = XModLib.XMLConfigReader.openSection(os.path.splitext(__file__)[0] + '.xml')
 	if mainSection is None:
