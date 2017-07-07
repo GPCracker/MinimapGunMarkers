@@ -9,7 +9,7 @@ def new_AvatarInputHandler_handleKeyEvent(old_AvatarInputHandler_handleKeyEvent,
 	## AvatarInputHandler started, event not handled by game (for avatar switches)
 	if self._AvatarInputHandler__isStarted and not result:
 		## HotKeys - VehicleGunMarkers
-		mconfig = _config_['vehicleGunMarkers']
+		mconfig = _config_['modules']['vehicleGunMarkers']
 		if mconfig['enabled']:
 			## HotKeys - VehicleGunMarkers - Global
 			fconfig = mconfig

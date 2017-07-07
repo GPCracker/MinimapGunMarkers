@@ -23,78 +23,80 @@ def loadConfiguration():
 		'ignoreClientVersion': ('Bool', True),
 		'appLoadedMessage': ('LocalizedWideString', u'<a href="event:MinimapGunMarkers.official_topic"><font color="#0080FF">"Minimap&nbsp;Gun&nbsp;Markers"</font></a> <font color="#008000">successfully loaded.</font>'),
 		'appFailedMessage': ('LocalizedWideString', u'<a href="event:MinimapGunMarkers.official_topic"><font color="#0080FF">"Minimap&nbsp;Gun&nbsp;Markers"</font></a> <font color="#E00000">is incompatible with current client version.</font>'),
-		'vehicleGunMarkers': {
-			'enabled': ('Bool', True),
-			'activated': ('Bool', True),
-			'shortcut': ('AdvancedShortcut', {
-				'sequence': ('String', 'KEY_NONE'),
-				'switch': ('Bool', True),
-				'invert': ('Bool', False),
-			}),
-			'message': {
-				'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: GLOBAL ENABLED.'),
-				'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: GLOBAL DISABLED.')
-			},
-			'filters': {
-				'spg': {
-					'enabled': ('Bool', True),
-					'activated': ('Bool', True),
-					'shortcut': ('AdvancedShortcut', {
-						'sequence': ('String', 'KEY_NONE'),
-						'switch': ('Bool', True),
-						'invert': ('Bool', False),
-					}),
-					'message': {
-						'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: SPG ENABLED.'),
-						'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: SPG DISABLED.')
-					},
-					'graphics': {
-						'source': ('String', 'MinimapGunMarkers:markers/ally'),
-						'scale': ('Vector2AsTuple', (0.75, 0.75)),
-						'offset': ('Vector2AsTuple', (-26.0, -58.0)),
-						'smooth': ('Bool', True)
-					},
-					'function': ('Internal', lambda gunEntry: not gunEntry.isEnemy() and not gunEntry.isSquadMan() and gunEntry.getClassTag() in ('SPG', ))
+		'modules': {
+			'vehicleGunMarkers': {
+				'enabled': ('Bool', True),
+				'activated': ('Bool', True),
+				'shortcut': ('AdvancedShortcut', {
+					'sequence': ('String', 'KEY_NONE'),
+					'switch': ('Bool', True),
+					'invert': ('Bool', False),
+				}),
+				'message': {
+					'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: GLOBAL ENABLED.'),
+					'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: GLOBAL DISABLED.')
 				},
-				'squad': {
-					'enabled': ('Bool', True),
-					'activated': ('Bool', True),
-					'shortcut': ('AdvancedShortcut', {
-						'sequence': ('String', 'KEY_NONE'),
-						'switch': ('Bool', True),
-						'invert': ('Bool', False),
-					}),
-					'message': {
-						'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: SQUAD ENABLED.'),
-						'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: SQUAD DISABLED.')
+				'filters': {
+					'spg': {
+						'enabled': ('Bool', True),
+						'activated': ('Bool', True),
+						'shortcut': ('AdvancedShortcut', {
+							'sequence': ('String', 'KEY_NONE'),
+							'switch': ('Bool', True),
+							'invert': ('Bool', False),
+						}),
+						'message': {
+							'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: SPG ENABLED.'),
+							'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: SPG DISABLED.')
+						},
+						'graphics': {
+							'source': ('String', 'MinimapGunMarkers:markers/ally'),
+							'scale': ('Vector2AsTuple', (0.75, 0.75)),
+							'offset': ('Vector2AsTuple', (-26.0, -58.0)),
+							'smooth': ('Bool', True)
+						},
+						'function': ('Internal', lambda gunEntry: not gunEntry.isEnemy() and not gunEntry.isSquadMan() and gunEntry.getClassTag() in ('SPG', ))
 					},
-					'graphics': {
-						'source': ('String', 'MinimapGunMarkers:markers/squadman'),
-						'scale': ('Vector2AsTuple', (0.75, 0.75)),
-						'offset': ('Vector2AsTuple', (-26.0, -58.0)),
-						'smooth': ('Bool', True)
+					'squad': {
+						'enabled': ('Bool', True),
+						'activated': ('Bool', True),
+						'shortcut': ('AdvancedShortcut', {
+							'sequence': ('String', 'KEY_NONE'),
+							'switch': ('Bool', True),
+							'invert': ('Bool', False),
+						}),
+						'message': {
+							'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: SQUAD ENABLED.'),
+							'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: SQUAD DISABLED.')
+						},
+						'graphics': {
+							'source': ('String', 'MinimapGunMarkers:markers/squadman'),
+							'scale': ('Vector2AsTuple', (0.75, 0.75)),
+							'offset': ('Vector2AsTuple', (-26.0, -58.0)),
+							'smooth': ('Bool', True)
+						},
+						'function': ('Internal', lambda gunEntry: not gunEntry.isEnemy() and gunEntry.isSquadMan())
 					},
-					'function': ('Internal', lambda gunEntry: not gunEntry.isEnemy() and gunEntry.isSquadMan())
-				},
-				'enemy': {
-					'enabled': ('Bool', False),
-					'activated': ('Bool', True),
-					'shortcut': ('AdvancedShortcut', {
-						'sequence': ('String', 'KEY_NONE'),
-						'switch': ('Bool', True),
-						'invert': ('Bool', False),
-					}),
-					'message': {
-						'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: ENEMY ENABLED.'),
-						'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: ENEMY DISABLED.')
-					},
-					'graphics': {
-						'source': ('String', 'MinimapGunMarkers:markers/enemy'),
-						'scale': ('Vector2AsTuple', (0.75, 0.75)),
-						'offset': ('Vector2AsTuple', (-26.0, -58.0)),
-						'smooth': ('Bool', True)
-					},
-					'function': ('Internal', lambda gunEntry: gunEntry.isEnemy())
+					'enemy': {
+						'enabled': ('Bool', False),
+						'activated': ('Bool', True),
+						'shortcut': ('AdvancedShortcut', {
+							'sequence': ('String', 'KEY_NONE'),
+							'switch': ('Bool', True),
+							'invert': ('Bool', False),
+						}),
+						'message': {
+							'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: ENEMY ENABLED.'),
+							'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: ENEMY DISABLED.')
+						},
+						'graphics': {
+							'source': ('String', 'MinimapGunMarkers:markers/enemy'),
+							'scale': ('Vector2AsTuple', (0.75, 0.75)),
+							'offset': ('Vector2AsTuple', (-26.0, -58.0)),
+							'smooth': ('Bool', True)
+						},
+						'function': ('Internal', lambda gunEntry: gunEntry.isEnemy())
+					}
 				}
 			}
 		},

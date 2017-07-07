@@ -4,7 +4,7 @@
 @XModLib.HookUtils.methodHookExt(_inject_hooks_, gui.Scaleform.daapi.view.battle.shared.minimap.component.MinimapComponent, '_setupPlugins', invoke=XModLib.HookUtils.HookInvoke.MASTER)
 def new_MinimapComponent_setupPlugins(old_MinimapComponent_setupPlugins, self, *args, **kwargs):
 	result = old_MinimapComponent_setupPlugins(self, *args, **kwargs)
-	config = _config_['vehicleGunMarkers']
+	config = _config_['modules']['vehicleGunMarkers']
 	if config['enabled']:
 		efilter = lambda idx, graphics, function, activated: GunEntryFilter(idx, GunEntryGraphics(**graphics), function, activated)
 		result['guns'] = VehicleGunMinimapPlugin.factory(
