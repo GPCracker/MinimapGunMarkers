@@ -30,7 +30,7 @@ def loadConfiguration():
 				'shortcut': ('AdvancedShortcut', {
 					'sequence': ('String', 'KEY_NONE'),
 					'switch': ('Bool', True),
-					'invert': ('Bool', False),
+					'invert': ('Bool', False)
 				}),
 				'message': {
 					'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: GLOBAL ENABLED.'),
@@ -43,7 +43,7 @@ def loadConfiguration():
 						'shortcut': ('AdvancedShortcut', {
 							'sequence': ('String', 'KEY_NONE'),
 							'switch': ('Bool', True),
-							'invert': ('Bool', False),
+							'invert': ('Bool', False)
 						}),
 						'message': {
 							'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: SPG ENABLED.'),
@@ -63,7 +63,7 @@ def loadConfiguration():
 						'shortcut': ('AdvancedShortcut', {
 							'sequence': ('String', 'KEY_NONE'),
 							'switch': ('Bool', True),
-							'invert': ('Bool', False),
+							'invert': ('Bool', False)
 						}),
 						'message': {
 							'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: SQUAD ENABLED.'),
@@ -83,7 +83,7 @@ def loadConfiguration():
 						'shortcut': ('AdvancedShortcut', {
 							'sequence': ('String', 'KEY_NONE'),
 							'switch': ('Bool', True),
-							'invert': ('Bool', False),
+							'invert': ('Bool', False)
 						}),
 						'message': {
 							'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: ENEMY ENABLED.'),
