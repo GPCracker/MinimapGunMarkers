@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Minimap Gun Markers Mod (MinimapGunMarkers)\n"
+"Report-Msgid-Bugs-To: http://www.koreanrandom.com/forum/topic/18451-/\n"
+"Last-Translator: GPCracker <GPCracker@mail.ru>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "appLoadedMessage"
+msgstr "<a href='event:MinimapGunMarkers.official_topic'><font color='#0080FF'>\"Minimap&nbsp;Gun&nbsp;Markers\"</font></a> <font color='#008000'>successfully loaded.</font>"
+
+msgid "appFailedMessage"
+msgstr "<a href='event:MinimapGunMarkers.official_topic'><font color='#0080FF'>\"Minimap&nbsp;Gun&nbsp;Markers\"</font></a> <font color='#E00000'>is incompatible with current client version.</font>"
+
+msgid "vehicleGunMarkers/global/onActivate"
+msgstr "[MinimapGunMarkers] GLOBAL ENABLED."
+
+msgid "vehicleGunMarkers/global/onDeactivate"
+msgstr "[MinimapGunMarkers] GLOBAL DISABLED."
+
+msgid "vehicleGunMarkers/spg/onActivate"
+msgstr "[MinimapGunMarkers] SPG ENABLED."
+
+msgid "vehicleGunMarkers/spg/onDeactivate"
+msgstr "[MinimapGunMarkers] SPG DISABLED."
+
+msgid "vehicleGunMarkers/squad/onActivate"
+msgstr "[MinimapGunMarkers] SQUAD ENABLED."
+
+msgid "vehicleGunMarkers/squad/onDeactivate"
+msgstr "[MinimapGunMarkers] SQUAD DISABLED."
+
+msgid "vehicleGunMarkers/enemy/onActivate"
+msgstr "[MinimapGunMarkers] ENEMY ENABLED."
+
+msgid "vehicleGunMarkers/enemy/onDeactivate"
+msgstr "[MinimapGunMarkers] ENEMY DISABLED."

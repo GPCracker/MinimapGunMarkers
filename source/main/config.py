@@ -33,8 +33,8 @@ def loadConfiguration():
 					'invert': ('Bool', False)
 				}),
 				'message': {
-					'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: GLOBAL ENABLED.'),
-					'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: GLOBAL DISABLED.')
+					'onActivate': ('LocalizedWideString', u'[MinimapGunMarkers] GLOBAL ENABLED.'),
+					'onDeactivate': ('LocalizedWideString', u'[MinimapGunMarkers] GLOBAL DISABLED.')
 				},
 				'filters': {
 					'spg': {
@@ -46,8 +46,8 @@ def loadConfiguration():
 							'invert': ('Bool', False)
 						}),
 						'message': {
-							'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: SPG ENABLED.'),
-							'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: SPG DISABLED.')
+							'onActivate': ('LocalizedWideString', u'[MinimapGunMarkers] SPG ENABLED.'),
+							'onDeactivate': ('LocalizedWideString', u'[MinimapGunMarkers] SPG DISABLED.')
 						},
 						'graphics': {
 							'source': ('String', 'MinimapGunMarkers:markers/ally'),
@@ -66,8 +66,8 @@ def loadConfiguration():
 							'invert': ('Bool', False)
 						}),
 						'message': {
-							'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: SQUAD ENABLED.'),
-							'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: SQUAD DISABLED.')
+							'onActivate': ('LocalizedWideString', u'[MinimapGunMarkers] SQUAD ENABLED.'),
+							'onDeactivate': ('LocalizedWideString', u'[MinimapGunMarkers] SQUAD DISABLED.')
 						},
 						'graphics': {
 							'source': ('String', 'MinimapGunMarkers:markers/squadman'),
@@ -86,8 +86,8 @@ def loadConfiguration():
 							'invert': ('Bool', False)
 						}),
 						'message': {
-							'onActivate': ('LocalizedWideString', u'MinimapGunMarkers: ENEMY ENABLED.'),
-							'onDeactivate': ('LocalizedWideString', u'MinimapGunMarkers: ENEMY DISABLED.')
+							'onActivate': ('LocalizedWideString', u'[MinimapGunMarkers] ENEMY ENABLED.'),
+							'onDeactivate': ('LocalizedWideString', u'[MinimapGunMarkers] ENEMY DISABLED.')
 						},
 						'graphics': {
 							'source': ('String', 'MinimapGunMarkers:markers/enemy'),
