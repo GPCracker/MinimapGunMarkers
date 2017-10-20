@@ -8,9 +8,9 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 	container = 'guns'
 
 	@classmethod
-	def factory(sclass, name, filters=frozenset(), activated=True):
+	def factory(cls, name, filters=frozenset(), activated=True):
 		# This class method creates new subclass, that have specified filters collection.
-		return type(name, (sclass, ), {'_class_filters': filters, '_class_activated': activated})
+		return type(name, (cls, ), {'_class_filters': filters, '_class_activated': activated})
 
 	@staticmethod
 	def getGunMatrixProvider(vehicleID):

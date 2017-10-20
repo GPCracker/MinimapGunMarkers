@@ -4,8 +4,8 @@
 class GunEntryGraphics(collections.namedtuple('GunEntryGraphics', ('source', 'scale', 'offset', 'smooth', 'repeat', 'center'))):
 	__slots__ = ()
 
-	def __new__(sclass, source, scale=(1.0, 1.0), offset=(0.0, 0.0), smooth=False, repeat=False, center=False):
-		return super(GunEntryGraphics, sclass).__new__(sclass, source, scale, offset, smooth, repeat, center)
+	def __new__(cls, source, scale=(1.0, 1.0), offset=(0.0, 0.0), smooth=False, repeat=False, center=False):
+		return super(GunEntryGraphics, cls).__new__(cls, source, scale, offset, smooth, repeat, center)
 
 	def tuple(self):
 		return (self.source, ) + self.scale + self.offset + (self.smooth, self.repeat, self.center)
@@ -58,8 +58,8 @@ class GunEntryFilterCollection(frozenset):
 		self._activated = activated
 		return
 
-	def __new__(sclass, filters, activated=True):
-		return super(GunEntryFilterCollection, sclass).__new__(sclass, filters)
+	def __new__(cls, filters, activated=True):
+		return super(GunEntryFilterCollection, cls).__new__(cls, filters)
 
 	@property
 	def activated(self):
