@@ -8,9 +8,9 @@ def new_MinimapComponent_setupPlugins(old_MinimapComponent_setupPlugins, self, *
 	if config['enabled']:
 		efilter = lambda idx, graphics, function, activated: GunEntryFilter(idx, GunEntryGraphics(**graphics), function, activated)
 		result['guns'] = VehicleGunMinimapPlugin.factory(
-			'VehicleGunMinimapPlugin',
-			[efilter(idx, fconfig['graphics'], fconfig['function'], fconfig['activated']) for idx, fconfig in config['filters'].iteritems() if fconfig['enabled']],
-			config['activated']
+			name='VehicleGunMinimapPlugin',
+			filters=[efilter(idx, fconfig['graphics'], fconfig['function'], fconfig['activated']) for idx, fconfig in config['filters'].iteritems() if fconfig['enabled']],
+			activated=config['activated']
 		)
 	return result
 

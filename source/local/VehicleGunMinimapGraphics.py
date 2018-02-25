@@ -48,7 +48,10 @@ class GunEntryFilter(object):
 		return self._idx == other.idx and self._graphics == other.graphics and self._function == other.function
 
 	def __repr__(self):
-		return '{}(idx={!r}, graphics={!r}, function={!r})'.format(self.__class__.__name__, self._idx, self._graphics, self._function)
+		return '{!s}(idx={!r}, graphics={!r}, function={!r})'.format(
+			self.__class__.__name__,
+			self._idx, self._graphics, self._function
+		)
 
 class GunEntryFilterCollection(frozenset):
 	__slots__ = ('_activated', )
@@ -68,13 +71,13 @@ class GunEntryFilterCollection(frozenset):
 	def _getFilter(self, idx):
 		efilter = next((efilter for efilter in self if idx == efilter.idx), None)
 		if efilter is None:
-			raise KeyError('GunEntryFilter with an appropriate identifier does not exist.')
+			raise KeyError('GunEntryFilter with an appropriate identifier does not exist')
 		return efilter
 
 	def _getGraphics(self, gunEntry):
 		graphics = [efilter.graphics for efilter in self if efilter(gunEntry)]
 		if len(graphics) > 1:
-			raise RuntimeError('Any entry should fit only one filter, otherwise entry graphics could not be definitely chosen.')
+			raise RuntimeError('any entry should fit only one filter, otherwise entry graphics could not be definitely chosen')
 		return graphics.pop() if graphics else None
 
 	def toggleGlobal(self, value):
@@ -94,7 +97,7 @@ class GunEntryFilterCollection(frozenset):
 		return self._getGraphics(gunEntry) if self._activated else None
 
 	def __repr__(self):
-		return super(GunEntryFilterCollection, self).__repr__()
+		return frozenset.__repr__(self)
 
 class GunEntryEvent(gui.shared.events.GameEvent):
 	KEYBOARD_TOGGLE_GLOBAL = 'game/MinimapGunMarkers/keyboardToggleGlobal'
