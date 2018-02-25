@@ -1,6 +1,6 @@
-# *************************
-# MinimapComponent Hooks
-# *************************
+# ---------------------------- #
+#    MinimapComponent Hooks    #
+# ---------------------------- #
 @XModLib.HookUtils.methodHookExt(_inject_hooks_, gui.Scaleform.daapi.view.battle.shared.minimap.component.MinimapComponent, '_setupPlugins', invoke=XModLib.HookUtils.HookInvoke.MASTER)
 def new_MinimapComponent_setupPlugins(old_MinimapComponent_setupPlugins, self, *args, **kwargs):
 	result = old_MinimapComponent_setupPlugins(self, *args, **kwargs)

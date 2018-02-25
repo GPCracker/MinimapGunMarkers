@@ -1,6 +1,6 @@
-# *************************
-# AvatarInputHandler Hooks
-# *************************
+# ------------------------------ #
+#    AvatarInputHandler Hooks    #
+# ------------------------------ #
 @XModLib.HookUtils.methodHookExt(_inject_hooks_, AvatarInputHandler.AvatarInputHandler, 'handleKeyEvent', invoke=XModLib.HookUtils.HookInvoke.MASTER)
 def new_AvatarInputHandler_handleKeyEvent(old_AvatarInputHandler_handleKeyEvent, self, event):
 	result = old_AvatarInputHandler_handleKeyEvent(self, event)

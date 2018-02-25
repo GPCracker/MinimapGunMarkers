@@ -1,6 +1,6 @@
-# *************************
-# VehicleGunMinimapPlugin Class
-# *************************
+# ------------------------------------- #
+#    VehicleGunMinimapPlugin Classes    #
+# ------------------------------------- #
 class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.common.EntriesPlugin, gui.battle_control.arena_info.interfaces.IArenaVehiclesController):
 	__slots__ = ()
 

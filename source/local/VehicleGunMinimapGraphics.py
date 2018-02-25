@@ -1,6 +1,6 @@
-# *************************
-# VehicleGunMinimap Classes
-# *************************
+# --------------------------------------- #
+#    VehicleGunMinimapGraphics Classes    #
+# --------------------------------------- #
 class GunEntryGraphics(collections.namedtuple('GunEntryGraphics', ('source', 'scale', 'offset', 'smooth', 'repeat', 'center'))):
 	__slots__ = ()
 

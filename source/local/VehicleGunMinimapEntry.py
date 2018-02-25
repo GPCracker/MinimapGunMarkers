@@ -1,6 +1,6 @@
-# *************************
-# VehicleGunMinimapEntry Class
-# *************************
+# ------------------------------------ #
+#    VehicleGunMinimapEntry Classes    #
+# ------------------------------------ #
 class VehicleGunMinimapEntry(gui.Scaleform.daapi.view.battle.shared.minimap.entries.MinimapEntry):
 	__slots__ = (
 		'_plugin', '_graphics',

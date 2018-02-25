@@ -1,6 +1,6 @@
-# *************************
-# Python
-# *************************
+# ------------ #
+#    Python    #
+# ------------ #
 import os
 import math
 import time
@@ -10,43 +10,43 @@ import zipfile
 import functools
 import collections
 
-# *************************
-# BigWorld
-# *************************
+# -------------- #
+#    BigWorld    #
+# -------------- #
 import Math
 import BigWorld
 
-# *************************
-# WoT Client
-# *************************
+# ---------------- #
+#    WoT Client    #
+# ---------------- #
 import constants
 import PlayerEvents
 import gui.shared.personality
 
-# *************************
-# WoT Client GUI
-# *************************
+# -------------------- #
+#    WoT Client GUI    #
+# -------------------- #
 import gui.shared
 import gui.shared.events
 import gui.battle_control.arena_info.interfaces
 import gui.Scaleform.daapi.view.battle.shared.minimap.common
 import gui.Scaleform.daapi.view.battle.shared.minimap.entries
 
-# *************************
-# WoT Client Hooks
-# *************************
+# ---------------------- #
+#    WoT Client Hooks    #
+# ---------------------- #
 import Account
 import AvatarInputHandler
 
-# *************************
-# WoT Client GUI Hooks
-# *************************
+# -------------------------- #
+#    WoT Client GUI Hooks    #
+# -------------------------- #
 import gui.Scaleform.battle_entry
 import gui.Scaleform.daapi.view.battle.shared.minimap.component
 
-# *************************
-# X-Mod Library
-# *************************
+# ------------------- #
+#    X-Mod Library    #
+# ------------------- #
 import XModLib.HookUtils
 import XModLib.MathUtils
 import XModLib.TextUtils
@@ -56,7 +56,7 @@ import XModLib.KeyboardUtils
 import XModLib.ClientMessages
 import XModLib.XMLConfigReader
 
-# *************************
-# X-Mod GUI Library
-# *************************
-# Nothing
+# ----------------------- #
+#    X-Mod GUI Library    #
+# ----------------------- #
+# nothing
