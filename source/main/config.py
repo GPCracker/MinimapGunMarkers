@@ -12,10 +12,6 @@ def loadConfiguration():
 			'AdvancedShortcutXMLReader',
 			constructor=lambda shortcut: XModLib.KeyboardUtils.Shortcut(**shortcut),
 			sectionType='Dict'
-		)),
-		('LocalizedWideString', XModLib.XMLConfigReader.LocalizedWideStringXMLReaderMeta.construct(
-			'LocalizedWideStringXMLReader',
-			translator=_globals_['i18nFormatter']
 		))
 	))
 	defaultConfig = {
