@@ -23,7 +23,7 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 					vehicle.matrix
 				)
 			)
-		) if vehicle is not None else None
+		) if vehicle is not None and vehicle.appearance is not None else None
 
 	def __init__(self, parent):
 		super(VehicleGunMinimapPlugin, self).__init__(parent, clazz=VehicleGunMinimapEntry)
@@ -178,7 +178,6 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 
 	def invalidateArenaInfo(self):
 		"""Starts to invalidate information of arena."""
-		self.invalidateVehiclesInfo(self._arenaDP)
 		return
 
 	def invalidateVehiclesInfo(self, arenaDP):
