@@ -2,6 +2,7 @@
 #    Python    #
 # ------------ #
 import os
+import sys
 import math
 import time
 import marshal
@@ -50,6 +51,7 @@ import gui.Scaleform.daapi.view.battle.shared.minimap.component
 import XModLib.HookUtils
 import XModLib.MathUtils
 import XModLib.TextUtils
+import XModLib.ClientUtils
 import XModLib.EngineUtils
 import XModLib.CallbackUtils
 import XModLib.KeyboardUtils

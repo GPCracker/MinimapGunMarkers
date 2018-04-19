@@ -1,7 +1,7 @@
 # ------------------------------ #
 #    AvatarInputHandler Hooks    #
 # ------------------------------ #
-@XModLib.HookUtils.methodHookExt(_inject_hooks_, AvatarInputHandler.AvatarInputHandler, 'handleKeyEvent', invoke=XModLib.HookUtils.HookInvoke.MASTER)
+@XModLib.HookUtils.methodHookExt(g_inject_hooks, AvatarInputHandler.AvatarInputHandler, 'handleKeyEvent', invoke=XModLib.HookUtils.HookInvoke.MASTER)
 def new_AvatarInputHandler_handleKeyEvent(old_AvatarInputHandler_handleKeyEvent, self, event):
 	result = old_AvatarInputHandler_handleKeyEvent(self, event)
 	## Keyboard event parsing
@@ -9,7 +9,7 @@ def new_AvatarInputHandler_handleKeyEvent(old_AvatarInputHandler_handleKeyEvent,
 	## AvatarInputHandler started, event not handled by game (for avatar switches)
 	if self._AvatarInputHandler__isStarted and not result:
 		## HotKeys - VehicleGunMarkers
-		mconfig = _config_['modules']['vehicleGunMarkers']
+		mconfig = g_config['modules']['vehicleGunMarkers']
 		if mconfig['enabled']:
 			## HotKeys - VehicleGunMarkers - Global
 			fconfig = mconfig

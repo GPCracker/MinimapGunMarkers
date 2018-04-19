@@ -8,11 +8,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "appLoadedMessage"
-msgstr "<a href='event:MinimapGunMarkers.official_topic'><font color='#0080FF'>\"Маркеры&nbsp;направления&nbsp;орудий&nbsp;на&nbsp;миникарте\" (MinimapGunMarkers)</font></a> <font color='#008000'>загружены.</font>"
+msgid "appSuccessMessage"
+msgstr "<a href='event:MinimapGunMarkers.official_topic'><font color='#0080FF'>\"Маркеры&nbsp;направления&nbsp;орудий&nbsp;на&nbsp;миникарте\" (MinimapGunMarkers)</font></a> <font color='#008000'>успешно загружены.</font>"
 
-msgid "appFailedMessage"
-msgstr "<a href='event:MinimapGunMarkers.official_topic'><font color='#0080FF'>\"Маркеры&nbsp;направления&nbsp;орудий&nbsp;на&nbsp;миникарте\" (MinimapGunMarkers)</font></a> <font color='#E00000'>несовместимы с текущей версией клиента.</font>"
+msgid "appWarningMessage"
+msgstr "<a href='event:MinimapGunMarkers.official_topic'><font color='#0080FF'>\"Маркеры&nbsp;направления&nbsp;орудий&nbsp;на&nbsp;миникарте\" (MinimapGunMarkers)</font></a> <font color='#E00000'>не были протестированы с текущей версией клиента.</font>"
 
 msgid "vehicleGunMarkers/global/onActivate"
 msgstr "[МАРКЕРЫ ОРУДИЙ] ГЛОБАЛЬНО АКТИВИРОВАНО."
