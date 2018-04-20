@@ -61,4 +61,4 @@ import XModLib.XMLConfigReader
 # ----------------------- #
 #    X-Mod GUI Library    #
 # ----------------------- #
-# nothing
+import XModLib.pygui.battle.library

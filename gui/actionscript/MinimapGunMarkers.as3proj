@@ -52,7 +52,7 @@
 	</includeLibraries>
 	<!-- SWC Libraries -->
 	<libraryPaths>
-		<element path="swc/XModLib.swc" />
+		<!-- example: <element path="..." /> -->
 	</libraryPaths>
 	<!-- External Libraries -->
 	<externalLibraryPaths>
@@ -61,6 +61,7 @@
 		<element path="swc/wg/battle.swc" />
 		<element path="swc/wg/gui_base.swc" />
 		<element path="swc/wg/gui_battle.swc" />
+		<element path="swc/XModLib.swc" />
 	</externalLibraryPaths>
 	<!-- Runtime Shared Libraries -->
 	<rslPaths>
