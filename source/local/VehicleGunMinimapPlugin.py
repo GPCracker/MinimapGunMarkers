@@ -2,15 +2,14 @@
 # VehicleGunMinimapPlugin Class
 # *************************
 class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.common.EntriesPlugin, gui.battle_control.arena_info.interfaces.IArenaVehiclesController):
-	__slots__ = ('_filters', )
+	__slots__ = ()
 
 	symbol = 'net.GPCracker.MinimapGunMarkers.entries::VehicleGunMinimapEntry'
 	container = 'guns'
 
 	@classmethod
-	def factory(cls, name, filters=frozenset(), activated=True):
-		# This class method creates new subclass, that have specified filters collection.
-		return type(name, (cls, ), {'_class_filters': filters, '_class_activated': activated})
+	def factory(cls, name, filters):
+		return type(name, (cls, ), {'filters': filters, })
 
 	@staticmethod
 	def getGunMatrixProvider(vehicleID):
@@ -28,12 +27,7 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 
 	def __init__(self, parent):
 		super(VehicleGunMinimapPlugin, self).__init__(parent, clazz=VehicleGunMinimapEntry)
-		self._filters = GunEntryFilterCollection(self._class_filters, self._class_activated)
 		return
-
-	@property
-	def filters(self):
-		return self._filters
 
 	def start(self):
 		super(VehicleGunMinimapPlugin, self).start()
@@ -132,13 +126,13 @@ class VehicleGunMinimapPlugin(gui.Scaleform.daapi.view.battle.shared.minimap.com
 
 	def __handleToggleGlobal(self, event):
 		ctx = event.ctx
-		if self._filters.toggleGlobal(ctx['activated']):
+		if self.filters.toggleGlobal(ctx['activated']):
 			self.updateEntriesGraphics()
 		return
 
 	def __handleToggleFilter(self, event):
 		ctx = event.ctx
-		if self._filters.toggleFilter(ctx['idx'], ctx['activated']):
+		if self.filters.toggleFilter(ctx['idx'], ctx['activated']):
 			self.updateEntriesGraphics()
 		return
 

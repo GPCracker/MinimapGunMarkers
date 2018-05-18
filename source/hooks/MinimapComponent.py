@@ -6,11 +6,17 @@ def new_MinimapComponent_setupPlugins(old_MinimapComponent_setupPlugins, self, *
 	result = old_MinimapComponent_setupPlugins(self, *args, **kwargs)
 	config = _config_['modules']['vehicleGunMarkers']
 	if config['enabled']:
-		efilter = lambda idx, graphics, function, activated: GunEntryFilter(idx, GunEntryGraphics(**graphics), function, activated)
+		def iterfilters(fcis):
+			for idx, fconfig in fcis:
+				if fconfig['enabled']:
+					yield GunEntryFilter(idx, GunEntryGraphics(**fconfig['graphics']), fconfig['function'], fconfig['activated'])
+			return
 		result['guns'] = VehicleGunMinimapPlugin.factory(
 			name='VehicleGunMinimapPlugin',
-			filters=[efilter(idx, fconfig['graphics'], fconfig['function'], fconfig['activated']) for idx, fconfig in config['filters'].iteritems() if fconfig['enabled']],
-			activated=config['activated']
+			filters=GunEntryFilterCollection(
+				filters=iterfilters(config['filters'].iteritems()),
+				activated=config['activated']
+			)
 		)
 	return result
 

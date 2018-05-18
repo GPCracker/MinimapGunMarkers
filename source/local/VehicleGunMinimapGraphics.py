@@ -40,12 +40,17 @@ class GunEntryFilter(object):
 		return self.activated and self._function(gunEntry)
 
 	def __hash__(self):
-		return hash(self._idx)
+		return hash((self._idx, ))
 
 	def __eq__(self, other):
-		if not isinstance(other, self.__class__):
+		if not isinstance(other, GunEntryFilter):
 			return NotImplemented
-		return self._idx == other.idx and self._graphics == other.graphics and self._function == other.function
+		return self._idx == other.idx
+
+	def __ne__(self, other):
+		if not isinstance(other, GunEntryFilter):
+			return NotImplemented
+		return self._idx != other.idx
 
 	def __repr__(self):
 		return '{!s}(idx={!r}, graphics={!r}, function={!r})'.format(
@@ -54,35 +59,33 @@ class GunEntryFilter(object):
 		)
 
 class GunEntryFilterCollection(frozenset):
-	__slots__ = ('_activated', )
+	__slots__ = ('activated', )
+
+	def __new__(cls, filters, *args, **kwargs):
+		return super(GunEntryFilterCollection, cls).__new__(cls, filters)
 
 	def __init__(self, filters, activated=True):
 		super(GunEntryFilterCollection, self).__init__(filters)
-		self._activated = activated
+		self.activated = activated
 		return
 
-	def __new__(cls, filters, activated=True):
-		return super(GunEntryFilterCollection, cls).__new__(cls, filters)
-
-	@property
-	def activated(self):
-		return self._activated
-
 	def _getFilter(self, idx):
-		efilter = next((efilter for efilter in self if idx == efilter.idx), None)
-		if efilter is None:
-			raise KeyError('GunEntryFilter with an appropriate identifier does not exist')
-		return efilter
+		for efilter in self:
+			if idx == efilter.idx:
+				return efilter
+		raise KeyError(idx)
+		return
 
 	def _getGraphics(self, gunEntry):
-		graphics = [efilter.graphics for efilter in self if efilter(gunEntry)]
-		if len(graphics) > 1:
-			raise RuntimeError('any entry should fit only one filter, otherwise entry graphics could not be definitely chosen')
-		return graphics.pop() if graphics else None
+		generator = (efilter.graphics for efilter in self if efilter(gunEntry))
+		graphics = next(generator, None)
+		if graphics is not None and next(generator, None) is not None:
+			raise RuntimeError('any entry must fit only one filter because entry graphics must be uniquely defined')
+		return graphics
 
 	def toggleGlobal(self, value):
-		if value != self._activated:
-			self._activated = value
+		if value != self.activated:
+			self.activated = value
 			return True
 		return False
 
@@ -94,7 +97,7 @@ class GunEntryFilterCollection(frozenset):
 		return False
 
 	def __call__(self, gunEntry):
-		return self._getGraphics(gunEntry) if self._activated else None
+		return self._getGraphics(gunEntry) if self.activated else None
 
 	def __repr__(self):
 		return frozenset.__repr__(self)
